@@ -5,7 +5,20 @@
 		"parameters": {},
 		"requestBodies": {},
 		"responses": {},
-		"schemas": {},
+		"schemas": {
+			"QueryReqDto": {
+				"properties": {
+					"query": {
+						"type": "string"
+					}
+				},
+				"required": [
+					"query"
+				],
+				"type": "object",
+				"additionalProperties": false
+			}
+		},
 		"securitySchemes": {
 			"api_key": {
 				"type": "apiKey",
@@ -38,6 +51,86 @@
 	},
 	"openapi": "3.0.0",
 	"paths": {
+		"/query": {
+			"post": {
+				"operationId": "GetDataPoints",
+				"responses": {
+					"200": {
+						"description": "Ok",
+						"content": {
+							"application/json": {
+								"schema": {}
+							}
+						}
+					}
+				},
+				"tags": [
+					"Query"
+				],
+				"security": [],
+				"parameters": [],
+				"requestBody": {
+					"required": true,
+					"content": {
+						"application/json": {
+							"schema": {
+								"$ref": "#/components/schemas/QueryReqDto"
+							}
+						}
+					}
+				}
+			}
+		},
+		"/query/suggestions": {
+			"post": {
+				"operationId": "GetSuggestions",
+				"responses": {
+					"200": {
+						"description": "Ok",
+						"content": {
+							"application/json": {
+								"schema": {}
+							}
+						}
+					}
+				},
+				"tags": [
+					"Query"
+				],
+				"security": [],
+				"parameters": [],
+				"requestBody": {
+					"required": true,
+					"content": {
+						"application/json": {
+							"schema": {
+								"$ref": "#/components/schemas/QueryReqDto"
+							}
+						}
+					}
+				}
+			}
+		},
+		"/query/trends": {
+			"get": {
+				"operationId": "GetTrends",
+				"responses": {
+					"200": {
+						"description": "Ok",
+						"content": {
+							"application/json": {
+								"schema": {}
+							}
+						}
+					}
+				},
+				"tags": [
+					"Query"
+				],
+				"security": [],
+				"parameters": []
+			}
+		},
 		"/test": {
 			"get": {
 				"operationId": "TestGet",

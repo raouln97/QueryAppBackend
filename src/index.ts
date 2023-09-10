@@ -2,6 +2,7 @@ import express, { json, urlencoded } from "express";
 import {config} from "./config";
 import mongoose from "mongoose";
 import { RegisterRoutes } from "../build/routes";
+import cors from "cors";
 
 const app = express();
 
@@ -14,6 +15,7 @@ mongoose.connect(url,
 const con = mongoose.connection;
 app.use(json()); // Parse JSON bodies
 app.use(urlencoded({ extended: true })); // Parse URL-encoded bodies
+app.use(cors());
 
 RegisterRoutes(app);
 try {
